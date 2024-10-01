@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:80"
+  
+  sub1:
+    image: nginx
+    volumes:
+      - ./static1:/usr/share/nginx/html:ro
+  
+  sub2:
+    image: nginx
+    volumes:
+      - ./static2:/usr/share/nginx/html:ro
